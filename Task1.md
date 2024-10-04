@@ -13,3 +13,6 @@ and the information exchanged.
 ● Include code examples.
 ● You can link to existing VTEX documentation.
 ● You can use diagrams.
+
+
+ref.: https://developers.vtex.com/docs/guides/external-marketplace-integration-price-update
