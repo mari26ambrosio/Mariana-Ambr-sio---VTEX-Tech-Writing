@@ -1,10 +1,8 @@
-# Task 2
-Write a technical document in Portuguese explaining how to set up a shipping strategy for a
-new VTEX store and, after creating it, how to check if it works. Keep in mind:
-● Consider a business-oriented audience, such as store administrators setting up their
-VTEX store.
-● Include relevant concepts related to shipping strategy.
+Escreva um documento técnico em português explicando como configurar uma estratégia de envio para uma nova loja VTEX e, após criá-la, como verificar se ela está funcionando. Tenha em mente:
 
-● Try to keep this document short and objective.
-● You can link to existing VTEX documentation.
-● You can use diagrams.
+● Considere um público orientado para negócios, como administradores de lojas configurando sua loja VTEX.
+● Inclua conceitos relevantes relacionados à estratégia de envio.
+● Tente manter o documento curto e objetivo.
+● Você pode incluir links para a documentação existente da VTEX.
+● Você pode usar diagramas.
+
