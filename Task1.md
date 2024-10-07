@@ -23,15 +23,47 @@ Follow the steps below to create an order invoicing integration:
 
 3. For orders that have been integrated into VTEX, the connector should check the order status in VTEX using the [**Get Order API**](https://developers.vtex.com/docs/api-reference/orders-api/#get-/api/oms/pvt/orders/-orderId-);
 
-4. To invoice the order, the [**Order invoice notification**](https://developers.vtex.com/docs/api-reference/orders-api#post-/api/oms/pvt/orders/-orderId-/invoice) endpoint must be called, and instead of having the field `type` value defined as `Output`, it will be `Input`:
+4. To invoice the order, call the [**Order invoice notification**](https://developers.vtex.com/docs/api-reference/orders-api#post-/api/oms/pvt/orders/-orderId-/invoice) endpoint. Set the field `type` value to `Input`:
 
-- [**Order invoice notification**](https://developers.vtex.com/docs/api-reference/orders-api#post-/api/oms/pvt/orders/-orderId-/invoice);
+   ```http
+   POST /api/oms/pvt/orders/{orderId}/invoice
+   Host: {accountName}.vtex.com
+   X-VTEX-API-AppKey: {your-app-key}
+   X-VTEX-API-AppToken: {your-app-token}
+   Content-Type: application/json
 
-	- This request invoices an order, indicating successful completion and allowing the order status to change to `invoiced`. Once invoiced, the order's status cannot be modified.
+   {
+       "type": "Input",
+       "items": [
+           {
+               "id": "item-id-1",
+               "name": "Product Name 1",
+               "quantity": 1,
+               "price": 1000
+           },
+           {
+               "id": "item-id-2",
+               "name": "Product Name 2",
+               "quantity": 2,
+               "price": 2000
+           }
+       ]
+   }
 
-- [**Update order's partial invoice (send tracking number)**](https://developers.vtex.com/docs/api-reference/orders-api#patch-/api/oms/pvt/orders/-orderId-/invoice/-invoiceNumber-);
+This request invoices an order, indicating successful completion and allowing the order status to change to `invoiced`. Once invoiced, the order's status cannot be modified.
 
-	- Update an order by adding its tracking number to the [**partial invoice**](https://help.vtex.com/en/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/q9GPspTb9cHlMeAZfdEUe). After this, you can use the [**Update Order Tracking Status API**](https://developers.vtex.com/docs/api-reference/orders-api#put-/api/oms/pvt/orders/-orderId-/invoice/-invoiceNumber-/tracking) to add tracking events.
+- To update an order by adding its tracking number to the **partial invoice**, use the [**Update order's partial invoice (send tracking number)**](https://developers.vtex.com/docs/api-reference/orders-api#patch-/api/oms/pvt/orders/-orderId-/invoice/-invoiceNumber-);
+
+   ```http 
+   PATCH /api/oms/pvt/orders/{orderId}/invoice/{invoiceNumber}
+   Host: {accountName}.vtex.com
+   X-VTEX-API-AppKey: {your-app-key}
+   X-VTEX-API-AppToken: {your-app-token}
+   Content-Type: application/json
+   
+   {
+    "trackingNumber": "TRACK12345"
+    }
 
 - [**Adding a second address for invoicing an order**](https://developers.vtex.com/docs/guides/adding-a-second-address-to-the-order);
 
