@@ -1,1 +1,1 @@
-### Mariana-Ambr-sio---VTEX-Tech-Writing
+Este repositório contém as tasks realizadas para o processo seletivo de Tech Writer na VTEX. O objetivo das atividades é demonstrar minha habilidade em redigir e organizar documentos técnicos voltados para uma audiência de administradores de lojas
